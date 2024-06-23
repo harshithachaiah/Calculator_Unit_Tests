@@ -100,7 +100,7 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Multiply_ZeroAndPositiveNumber_ReturnsZero()
+        public void Multiply_ZeroAndPositiveNumber()
         {
             Assert.AreEqual(0, calculator.Multiply(0, 7));
             Assert.AreEqual(0, calculator.Multiply(8, 0));
@@ -157,7 +157,7 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Square_Zero_ReturnsZero()
+        public void Square_Zero()
         {
             Assert.AreEqual(0, calculator.Square(0));
         }
@@ -165,14 +165,14 @@ namespace CalculatorTests
         
 
         [Test]
-        public void SquareRoot_PositiveNumber_ReturnsCorrectResult()
+        public void SquareRoot_PositiveNumber()
         {
             Assert.AreEqual(2, calculator.SquareRoot(4));
             Assert.AreEqual(5, calculator.SquareRoot(25));
         }
 
         [Test]
-        public void SquareRoot_Zero_ReturnsZero()
+        public void SquareRoot_Zero()
         {
             
             Assert.AreEqual(0, calculator.SquareRoot(0));
@@ -185,7 +185,7 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void SquareRoot_LargeNumbers_ReturnsCorrectResult()
+        public void SquareRoot_LargeNumbers()
         {
             Assert.AreEqual(1000, calculator.SquareRoot(1000000));
             Assert.AreEqual(50, calculator.SquareRoot(2500));
