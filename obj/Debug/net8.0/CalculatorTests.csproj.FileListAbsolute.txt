@@ -194,3 +194,4 @@
 /Users/harshithachaiah/Desktop/Lorax/LORAX_EPI_UnitTest_Assessment/CalculatorTests/obj/Debug/net8.0/CalculatorTests.pdb
 /Users/harshithachaiah/Desktop/Lorax/LORAX_EPI_UnitTest_Assessment/CalculatorTests/obj/Debug/net8.0/CalculatorTests.genruntimeconfig.cache
 /Users/harshithachaiah/Desktop/Lorax/LORAX_EPI_UnitTest_Assessment/CalculatorTests/obj/Debug/net8.0/ref/CalculatorTests.dll
+/Users/harshithachaiah/Desktop/Lorax/LORAX_EPI_UnitTest_Assessment/CalculatorTests/obj/Debug/net8.0/CalculatorTests.sourcelink.json
