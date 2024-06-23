@@ -14,6 +14,7 @@ namespace CalculatorTests
             calculator = new Calculator();
         }
 
+        // Addition Valid results
         [Test]
         public void Add_TwoPositiveNumbers()
         {
@@ -46,6 +47,7 @@ namespace CalculatorTests
             Assert.AreEqual(-2000000000, calculator.Add(-1000000000, -1000000000));
         }
 
+        // Substraction Valid results
         [Test]
         public void Subtract_TwoPositiveNumbers()
         {
@@ -84,6 +86,7 @@ namespace CalculatorTests
             Assert.AreEqual(-2000000000, calculator.Subtract(-1000000000, 1000000000));
         }
 
+        // Multiplication Valid results
         [Test]
         public void Multiply_TwoPositiveNumbers()
         {
@@ -114,6 +117,8 @@ namespace CalculatorTests
             Assert.AreEqual(-2000000000, calculator.Multiply(-1000000, 2000));
         }
 
+
+        // Division Valid results
         [Test]
         public void Divide_TwoPositiveNumbers()
         {
@@ -142,6 +147,7 @@ namespace CalculatorTests
             Assert.AreEqual(-500, calculator.Divide(1000, -2));
         }
 
+        // Square of an number
         [Test]
         public void Square_PositiveNumber()
         {
@@ -163,7 +169,7 @@ namespace CalculatorTests
         }
 
         
-
+        //  Square Root of an number
         [Test]
         public void SquareRoot_PositiveNumber()
         {
