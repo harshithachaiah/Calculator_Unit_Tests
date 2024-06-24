@@ -37,11 +37,13 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Add_ZeroAndPositiveNumber()
+        [TestCase(0, 7, 7)]
+        [TestCase(0, 0 ,0)]
+        [TestCase(6, 0, 6)]
+        public void Add_ZeroAndPositiveNumber(int a, int b, int expected)
         {
-            Assert.AreEqual(7, calculator.Add(0, 7));
-            Assert.AreEqual(0, calculator.Add(0, 0));
-            Assert.AreEqual(6, calculator.Add(6, 0));
+            Assert.AreEqual(expected, calculator.Add(a, b));
+            
         }
 
         [Test]
