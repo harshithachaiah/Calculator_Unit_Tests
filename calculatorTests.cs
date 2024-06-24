@@ -22,7 +22,6 @@ namespace CalculatorTests
         public void Add_TwoPositiveNumbers(int a, int b, int expected)
         {
             Assert.AreEqual(expected, calculator.Add(a, b));
-            Assert.AreEqual(10, calculator.Add(5, 5));
             Assert.AreNotEqual(0, calculator.Add(5, 5));
         }
 
@@ -30,6 +29,7 @@ namespace CalculatorTests
         [TestCase(10, -3, 7)]
         [TestCase(-4, -3 ,-7)]
         [TestCase(-1, -3, -4)]
+        [TestCase(-1, 6, 5)]
         public void Add_PositiveAndNegativeNumbers(int a, int b, int expected)
         {
             Assert.AreEqual(expected, calculator.Add(a, b));
@@ -56,82 +56,98 @@ namespace CalculatorTests
 
         // Substraction Valid results
         [Test]
-        public void Subtract_TwoPositiveNumbers()
+        [TestCase(10, 4, 6)]
+        [TestCase(3, 7,-4)]
+        [TestCase(6, 6, 0)]
+        public void Subtract_TwoPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(6, calculator.Subtract(10, 4));
-            Assert.AreEqual(-4, calculator.Subtract(3, 7));
-            Assert.AreEqual(0, calculator.Subtract(6, 6));
+            Assert.AreEqual(expected, calculator.Subtract(a, b));
+            
         }
 
         [Test]
-        public void Subtract_NegativeAndPositiveNumbers()
+        [TestCase(-5, 3, -8)]
+        [TestCase(4, -2, 6)]
+        [TestCase(-8, -9, 1)]
+        [TestCase(-4, -2, -2)]
+        public void Subtract_NegativeAndPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(-8, calculator.Subtract(-5, 3));
-            Assert.AreEqual(6, calculator.Subtract(4, -2));
-            Assert.AreEqual(1, calculator.Subtract(-8, -9));
-            Assert.AreEqual(-2, calculator.Subtract(-4, -2));
+            Assert.AreEqual(expected, calculator.Subtract(a, b));
+        
         }
 
         [Test]
-        public void Subtract_PositiveAndZero()
+        [TestCase(10, 0, 10)]
+        [TestCase(0, 5, -5)]
+        public void Subtract_PositiveAndZero(int a, int b, int expected)
         {
-            Assert.AreEqual(10, calculator.Subtract(10, 0));
-            Assert.AreEqual(-5, calculator.Subtract(0, 5));
+            Assert.AreEqual(expected, calculator.Subtract(a, b));
         }
 
         [Test]
-        public void Subtract_NagativeAndZero()
+        [TestCase(-10, 0, -10)]
+        [TestCase(0, 60, -60)]
+        public void Subtract_NagativeAndZero(int a, int b, int expected)
         {
-            Assert.AreEqual(-10, calculator.Subtract(-10, 0));
-            Assert.AreEqual(60, calculator.Subtract(0, -60));
+            Assert.AreEqual(expected, calculator.Subtract(a, b));
+            
         }
 
         [Test]
-        public void Subtract_LargeNumbers()
+        [TestCase(1500000000, 500000000, 1000000000)]
+        [TestCase(-1000000000, 1000000000, -2000000000)]
+        public void Subtract_LargeNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(1000000000, calculator.Subtract(1500000000, 500000000));
-            Assert.AreEqual(-2000000000, calculator.Subtract(-1000000000, 1000000000));
+            Assert.AreEqual(expected, calculator.Subtract(a, b));
+            
         }
 
         // Multiplication Valid results
         [Test]
-        public void Multiply_TwoPositiveNumbers()
+        [TestCase(4, 5, 20)]
+        [TestCase(8, 8, 64)]
+        public void Multiply_TwoPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(20, calculator.Multiply(4, 5));
-            Assert.AreEqual(64, calculator.Multiply(8, 8));
+            Assert.AreEqual(expected, calculator.Multiply(a, b));
+        
         }
 
         [Test]
-        public void Multiply_PositiveAndNegativeNumbers()
+        [TestCase(-3, 6, -18)]
+        [TestCase(8, -5, -40)]
+        [TestCase(-6, -6, 36)]
+        public void Multiply_PositiveAndNegativeNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(-18, calculator.Multiply(-3, 6));
-            Assert.AreEqual(-40, calculator.Multiply(8, -5));
-            Assert.AreEqual(36, calculator.Multiply(-6, -6));
+            Assert.AreEqual(expected, calculator.Multiply(a, b));
         }
 
         [Test]
-        public void Multiply_ZeroAndPositiveNumber()
+        [TestCase(0, 7, 0)]
+        [TestCase(8, 0, 0)]
+        [TestCase(0, 0, 0)]
+        public void Multiply_ZeroAndPositiveNumber(int a, int b, int expected)
         {
-            Assert.AreEqual(0, calculator.Multiply(0, 7));
-            Assert.AreEqual(0, calculator.Multiply(8, 0));
-            Assert.AreEqual(0, calculator.Multiply(0, 0));
+           Assert.AreEqual(expected, calculator.Multiply(a, b));
         }
 
         [Test]
-        public void Multiply_LargeNumbers()
+        [TestCase(500000, 2000, 1000000000)]
+        [TestCase(-1000000, 2000, -2000000000)]
+        public void Multiply_LargeNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(1000000000, calculator.Multiply(500000, 2000));
-            Assert.AreEqual(-2000000000, calculator.Multiply(-1000000, 2000));
+            Assert.AreEqual(expected, calculator.Multiply(a, b));
         }
 
 
         // Division Valid results
         [Test]
-        public void Divide_TwoPositiveNumbers()
+        [TestCase(10, 2, 5)]
+        [TestCase(2, 2, 1)]
+        [TestCase(5, 10, 0)]
+        public void Divide_TwoPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(5, calculator.Divide(10, 2));
-            Assert.AreEqual(1, calculator.Divide(2, 2));
-            Assert.AreEqual(0, calculator.Divide(5, 10));
+            Assert.AreEqual(expected, calculator.Divide(a, b));
+            
         }
 
         [Test]
@@ -141,32 +157,39 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Divide_NegativeAndPositiveNumbers()
+        [TestCase(-15, 3, -5)]
+        [TestCase(25, -5, -5)]
+        public void Divide_NegativeAndPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(-5, calculator.Divide(-15, 3));
-            Assert.AreEqual(-5, calculator.Divide(25, -5));
+            Assert.AreEqual(expected, calculator.Divide(a, b));
+            
         }
 
         [Test]
-        public void Divide_LargeNumbers()
+        [TestCase(1000000, 1000, 1000)]
+        [TestCase(1000, -2, -500)]
+        public void Divide_LargeNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(1000, calculator.Divide(1000000, 1000));
-            Assert.AreEqual(-500, calculator.Divide(1000, -2));
+            Assert.AreEqual(expected, calculator.Divide(a, b));
         }
 
         // Square of an number
         [Test]
-        public void Square_PositiveNumber()
+        [TestCase(4, 16)]
+        [TestCase(5, 25)]
+        public void Square_PositiveNumber(int a, int expected)
         {
-            Assert.AreEqual(16, calculator.Square(4));
-            Assert.AreEqual(25, calculator.Square(5));
+            
+            Assert.AreEqual(expected, calculator.Square(a));
         }
 
         [Test]
-        public void Square_NegativeNumber()
+        [TestCase(-8, 64)]
+        [TestCase(-12, 144)]
+        public void Square_NegativeNumber(int a, int expected)
         {
-            Assert.AreEqual(16, calculator.Square(-4));
-            Assert.AreEqual(144, calculator.Square(-12));
+            Assert.AreEqual(expected, calculator.Square(a));
+          
         }
 
         [Test]
@@ -178,10 +201,12 @@ namespace CalculatorTests
         
         //  Square Root of an number
         [Test]
-        public void SquareRoot_PositiveNumber()
+        [TestCase(4, 2)]
+        [TestCase(25, 5)]
+        public void SquareRoot_PositiveNumber(int a, int expected)
         {
-            Assert.AreEqual(2, calculator.SquareRoot(4));
-            Assert.AreEqual(5, calculator.SquareRoot(25));
+            
+            Assert.AreEqual(expected, calculator.SquareRoot(a));
         }
 
         [Test]
@@ -198,10 +223,12 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void SquareRoot_LargeNumbers()
+        [TestCase(1000000, 1000)]
+        [TestCase(2500, 50)]
+        public void SquareRoot_LargeNumbers(int a, int expected)
         {
-            Assert.AreEqual(1000, calculator.SquareRoot(1000000));
-            Assert.AreEqual(50, calculator.SquareRoot(2500));
+            Assert.AreEqual(expected, calculator.SquareRoot(a));
+            
         }
     }
 }
