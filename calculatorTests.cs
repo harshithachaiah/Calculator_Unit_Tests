@@ -47,10 +47,11 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Add_LargeNumbers()
+        [TestCase(500000000, 500000000 ,1000000000)]
+        [TestCase(-1000000000, -1000000000, -2000000000)]
+        public void Add_LargeNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(1000000000, calculator.Add(500000000, 500000000));
-            Assert.AreEqual(-2000000000, calculator.Add(-1000000000, -1000000000));
+            Assert.AreEqual(expected, calculator.Add(a, b));
         }
 
         // Substraction Valid results
