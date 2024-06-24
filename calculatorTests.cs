@@ -17,11 +17,11 @@ namespace CalculatorTests
         // Addition Valid results
         [Test]
         [TestCase(2, 3, 5)]
-        [TestCase(-2, -3, -5)]
-        [TestCase(2, -3, -1)]
-        public void Add_TwoPositiveNumbers(int a, int b, int c)
+        [TestCase(6, 4, 10)]
+        [TestCase(7, 3, 111)]
+        public void Add_TwoPositiveNumbers(int a, int b, int expected)
         {
-            Assert.AreEqual(c, calculator.Add(a, b));
+            Assert.AreEqual(expected, calculator.Add(a, b));
             Assert.AreEqual(10, calculator.Add(5, 5));
             Assert.AreNotEqual(0, calculator.Add(5, 5));
         }
