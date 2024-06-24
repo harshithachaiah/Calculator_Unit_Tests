@@ -18,7 +18,7 @@ namespace CalculatorTests
         [Test]
         [TestCase(2, 3, 5)]
         [TestCase(6, 4, 10)]
-        [TestCase(7, 3, 111)]
+        [TestCase(7, 5, 12)]
         public void Add_TwoPositiveNumbers(int a, int b, int expected)
         {
             Assert.AreEqual(expected, calculator.Add(a, b));
@@ -27,7 +27,10 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void Add_PositiveAndNegativeNumbers()
+        [TestCase(2, 3, 5)]
+        [TestCase(-2, -3, -5)]
+        [TestCase(2, -3, -1)]
+        public void Add_PositiveAndNegativeNumbers(int a, int b, int expected)
         {
             Assert.AreEqual(7, calculator.Add(10, -3));
             Assert.AreEqual(-7, calculator.Add(-4, -3));
