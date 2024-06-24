@@ -32,6 +32,7 @@ namespace CalculatorTests
         [TestCase(2, -3, -1)]
         public void Add_PositiveAndNegativeNumbers(int a, int b, int expected)
         {
+            Assert.AreEqual(expected, calculator.Add(a, b));
             Assert.AreEqual(7, calculator.Add(10, -3));
             Assert.AreEqual(-7, calculator.Add(-4, -3));
             Assert.AreEqual(2, calculator.Add(-1, 3));
